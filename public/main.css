@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+    body {
+      margin: 0;
+
+      font-family: "DM Sans", sans-serif;
+      line-height: 24px;
+    }
+
+    code,
+    pre code {
+      font-family: "DM Mono", monospace;
+      font-size: 1em;
+    }
+
+    code,
+    pre {
+      background-color: #222;
+      color: #fff;
+      padding: 3px;
+      border-radius: 3px;
+    }
+
+    .docs-row {
+      display: inline-flex;
+      align-items: baseline;
+      margin: 0 10% 40px 10%;
+    }
+
+    .col {
+      padding: 10px;
+      flex-grow: 1;
+      max-width: 33%;
+
+      position: sticky;
+      top: 0;
+    }
+
+    p,
+    pre {
+      margin: 0;
+    }
+
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+
+      margin-bottom: 20px;
+    }
+
+    .example-title {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1em;
+      left: 1em;
+      font-size: 24px;
+
+      user-select: none;
+    }
+
+    footer strong {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    footer a,
+    footer a:visited,
+    footer a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+
+    footer:hover strong {
+      opacity: 1;
+    }
