@@ -1,0 +1,33 @@
+{
+  "blend": {
+    "last_price_timestamp": "1627534800",
+    "volume": null,
+    "prev_volume": null,
+    "open": null,
+    "name": "Duri (Indonesia)"
+  },
+  "last_close_price": "76.34",
+  "last_price": 76.99,
+  "change_percent": 0.85,
+  "change_direction": "up",
+  "prices": [
+    { "time": 1625032800, "price": "77.39" },
+    { "time": 1625119200, "price": "78.87" },
+    { "time": 1626674400, "price": "75.96" },
+    { "time": 1626847200, "price": "73.04" },
+    { "time": 1626933600, "price": "75.26" },
+    { "time": 1627020000, "price": "76.06" },
+    { "time": 1627279200, "price": "75.16" },
+    { "time": 1627365600, "price": "76.51" },
+    { "time": 1627452000, "price": "76.34" },
+    { "time": 1627538400, "price": "76.99" }
+  ],
+  "amount": 31,
+  "time_dif": 86400,
+  "last_time": "1627534800",
+  "end_time": 1627686000,
+  "nulls": 0,
+  "min": "73.04",
+  "max": "78.87",
+  "change": 0.6499999999999915
+}

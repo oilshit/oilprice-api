@@ -1,13 +1,17 @@
 const express = require("express");
-const path = require('path');
+const path = require("path");
 const axios = require("axios");
+
+require("dotenv").config();
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname);
+app.set("view engine", "ejs");
+app.set("views", __dirname);
 
-app.use(express.static('public'));
+app.use(express.static("public"));
+
+const uri = "http://192.168.1.9:3000" || process.env.URI;
 
 // first testing
 app.get("/", (request, response) => {
@@ -44,7 +48,7 @@ app.get("/csrf", async (request, response) => {
 });
 
 // API to get oil and gas price data based on period and blend
-app.get("/:blend/:period", async (request, response) => {
+app.get("/prices/:blend/:period", async (request, response) => {
   let blend_code, period;
 
   // switch blend code based on blend param
@@ -54,6 +58,21 @@ app.get("/:blend/:period", async (request, response) => {
       break;
     case "brent":
       blend_code = 46;
+      break;
+    case "natgas":
+      blend_code = 51;
+      break;
+    case "heatingoil":
+      blend_code = 52;
+      break;
+    case "opcblend":
+      blend_code = 4460;
+      break;
+    case "marsus":
+      blend_code = 50;
+      break;
+    case "opecbasket":
+      blend_code = 29;
       break;
 
     // Indonesia
@@ -93,11 +112,9 @@ app.get("/:blend/:period", async (request, response) => {
 
   try {
     // get CSRF token from /csrf route
-    const csrf_token = await axios
-      .get("http://192.168.1.9:3000/csrf")
-      .then((result) => {
-        return result.data.data.csrf_token;
-      });
+    const csrf_token = await axios.get(`${uri}/csrf`).then((result) => {
+      return result.data.data.csrf_token;
+    });
 
     // get oil and gas price data based on period and blend
     const blend_data = await axios.post(
@@ -119,10 +136,34 @@ app.get("/:blend/:period", async (request, response) => {
       }
     );
 
+    [
+      "id",
+      "blend_name",
+      "flag",
+      "location",
+      "section",
+      "order",
+      "day_template_order",
+      "chart_periods",
+      "update_text",
+      "breaks",
+      "formula",
+      "hide",
+      "source",
+      "technicals_symbol",
+      "technicals_enabled",
+    ].forEach((item) => delete blend_data.data.blend[item]);
+    Object.defineProperty(
+      blend_data.data.blend,
+      "name",
+      Object.getOwnPropertyDescriptor(blend_data.data.blend, "spreadsheet_name")
+    );
+    delete blend_data.data.blend["spreadsheet_name"];
+
     // console.log(blend_data.data);
     response.status(200).json(blend_data.data);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
 
     response.json({
       message: "request failed",
