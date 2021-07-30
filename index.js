@@ -107,10 +107,10 @@ app.get("/:blend/:period", async (request, response) => {
       }
     );
 
+    // console.log(blend_data.data);
     response.status(200).json(blend_data.data);
-    console.log(blend_data.data);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
 
     response.json({
       message: "request failed",

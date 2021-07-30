@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>oilshit - oilprice-api docs</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+    body {
+      margin: 0;
+
+      font-family: "DM Sans", sans-serif;
+      line-height: 24px;
+    }
+
+    code,
+    pre code {
+      font-family: "DM Mono", monospace;
+      font-size: 1em;
+    }
+
+    code,
+    pre {
+      background-color: #222;
+      color: #fff;
+      padding: 3px;
+      border-radius: 3px;
+    }
+
+    .docs-row {
+      display: inline-flex;
+      align-items: baseline;
+      margin: 0 10% 40px 10%;
+    }
+
+    .col {
+      padding: 10px;
+      flex-grow: 1;
+      max-width: 33%;
+
+      position: sticky;
+      top: 0;
+    }
+
+    p,
+    pre {
+      margin: 0;
+    }
+
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+
+      margin-bottom: 20px;
+    }
+
+    .example-title {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1em;
+      left: 1em;
+      font-size: 24px;
+
+      user-select: none;
+    }
+
+    footer strong {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    footer a,
+    footer a:visited,
+    footer a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+
+    footer:hover strong {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="docs-row">
+      <div class="col col-endpoint">GET <code>/</code></div>
+
+      <div class="col col-description">
+        <p>
+          First time using <strong>oilprice-api</strong>? You can use this
+          endpoint as your first test. It should returns JSON text with
+          <code>"Hello, world!"</code> message.
+        </p>
+      </div>
+
+      <div class="col col-example">
+        <p class="example-title">Request</p>
+        <pre><code>https://oilprice-api.vercel.app/</code></pre>
+        <p class="example-title">Response</p>
+        <pre><code>{
+  message: "Hello, world!"
+}</code></pre>
+      </div>
+    </div>
+
+    <div class="docs-row">
+      <div class="col col-endpoint">GET <code>/:blend/:period</code></div>
+
+      <div class="col col-description">
+        <p>
+          Get the oil and gas price based on <code>:blend</code> and
+          <code>:period</code> parameters.
+        </p>
+      </div>
+
+      <div class="col col-example">
+        <p class="example-title">Request</p>
+        <p>
+          Let say, we want to get <strong>monthly</strong> price of
+          <strong>Duri</strong> field (located in Indonesia).
+        </p>
+        <pre><code>https://oilprice-api.vercel.app/duri/monthly</code></pre>
+        <p class="example-title">Response</p>
+        <pre><code>{
+  "blend": {
+      "id": "4176",
+      "blend_name": "Cinta",
+      "spreadsheet_name": "Cinta (Indonesia)",
+      "flag": "ind.png",
+      "location": "",
+      "section": "53",
+      "order": "0",
+      "day_template_order": "12528",
+      "update_text": "EOD",
+      "chart_periods": "4,5,7",
+      "last_price_timestamp": "1627534800",
+      "breaks": "",
+      "formula": "",
+      "hide": "0",
+      "source": "China",
+      "technicals_symbol": "",
+      "technicals_enabled": "0",
+      "volume": null,
+      "prev_volume": null,
+      "open": null
+  },
+  "last_close_price": "67.53",
+  "last_price": 68.24,
+  "change_percent": 1.05,
+  "change_direction": "up",
+  "prices": [
+      {
+          "time": 1625032800,
+          "price": "69.25"
+      },
+      {
+          "time": 1625119200,
+          "price": "70.33"
+      },
+      {
+          "time": 1626674400,
+          "price": "67.73"
+      },
+      // many more
+  ],
+  "amount": 31,
+  "time_dif": 86400,
+  "last_time": "1627534800",
+  "end_time": 1627686000,
+  "nulls": 0,
+  "min": "64.64",
+  "max": "70.33",
+  "change": 0.7099999999999937
+}</code></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://oilshit.github.io/" target="_blank" rel="nofollow noreferrer">
+      <span id="logo"><i class="fa fa-tint" style="margin-right: 2px"></i><strong>ilshit</strong></span></a>
+    <span><strong><a href="https://github.com/oilshit/oilprice-api" target="_blank" rel="nofollow noreferrer"><i
+            class="fab fa fa-github" style="margin-right: 2px"></i></a></strong></span>
+  </footer>
+</body>
+
+</html>
