@@ -1,13 +1,25 @@
 const express = require("express");
+const path = require('path');
 const axios = require("axios");
 
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname);
+
+app.use(express.static('public'));
 
 // first testing
 app.get("/", (request, response) => {
   response.status(200).json({
     message: "Hello, world!",
   });
+});
+
+// documentation
+app.get("/docs", (request, response) => {
+  console.log(__dirname);
+  response.render("docs");
 });
 
 // API to get oilprice CSRF token
