@@ -8,34 +8,23 @@
   </head>
 
   <style>
-    @font-face {
-      font-family: "Bifocals UI";
-      src: url("assets/fonts/Bifocals.otf");
-      font-weight: 400;
-    }
-
-    @font-face {
-      font-family: "Bifocals UI";
-      src: url("assets/fonts/Bifocals\ Italic.otf");
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    @font-face {
-      font-family: "Bifocals UI";
-      src: url("assets/fonts/Bifocals\ Black.otf");
-      font-weight: 800;
-    }
-
-    @font-face {
-      font-family: "Bifocals UI";
-      src: url("assets/fonts/Bifocals\ Black\ Italic.otf");
-      font-weight: 800;
-      font-style: italic;
-    }
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
     body {
-      font-family: "Bifocals UI", Arial, Helvetica, sans-serif;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+    }
+
+    .price-element {
+      padding: 10px;
+      background-color: #ffe03a;
+      border-radius: 10px;
+      width: 300px;
+      align-self: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .date * {
+      display: block;
     }
   </style>
 
@@ -45,18 +34,73 @@
     <script>
       const demo = document.querySelector("#demo");
 
+      const dayOfWeeks = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      // index mapping
+
+      // const index = {
+      //   "45": "WTI CRUDE OIL",
+      //   "46": "BRENT CRUDE OIL",
+      //   "47": "MARS US",
+      //   "48": "NATURAL GAS"
+      //   "50": ""
+      // };
+
+      const renderEachOilData = (data) => {
+        const date = new Date(data[1].time * 1000);
+        return `
+          <div class="price-element">
+            <div class="date">
+              <span>${dayOfWeeks[date.getDay()]}, ${date.getDate()} ${
+          months[date.getMonth()]
+        } ${date.getFullYear()}<span>
+              <span>${("0" + date.getHours()).slice(-2)}:${(
+          "0" + date.getMinutes()
+        ).slice(-2)}</span>
+            </div>
+
+            <span>$ ${data[1].price.toFixed(3)}</span>
+            <span>$ ${data[1].change.toFixed(3)}</span>
+            <span>$ ${data[1].change.toFixed(3)}</span>
+          </div>
+        `;
+      };
+
       const renderOilPrice = async () => {
         const oilPriceData = await fetch(
           "https://s3.amazonaws.com/oilprice.com/widgets/oilprices/all/last.json"
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             return Object.entries(data);
           });
 
-        oilPriceData.forEach(price => {
-          demo.innerHTML += new Date(price[1].time * 1000) + "<br />";
+        oilPriceData.forEach((price) => {
+          console.log(price);
+          demo.innerHTML += renderEachOilData(price);
         });
       };
 
