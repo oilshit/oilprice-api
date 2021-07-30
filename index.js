@@ -3,14 +3,14 @@ const axios = require("axios");
 
 const app = express();
 
-// const app
+// first testing
 app.get("/", (request, response) => {
   response.status(200).json({
     message: "Hello, world!",
   });
 });
 
-// app to get oilprice CSRF token
+// API to get oilprice CSRF token
 app.get("/csrf", async (request, response) => {
   try {
     const token = await axios.get("https://oilprice.com/ajax/csrf");
@@ -31,6 +31,7 @@ app.get("/csrf", async (request, response) => {
   }
 });
 
+// API to get oil and gas price data based on period and blend
 app.get("/:blend/:period", async (request, response) => {
   let blend_code, period;
 
@@ -39,14 +40,40 @@ app.get("/:blend/:period", async (request, response) => {
     case "wti":
       blend_code = 45;
       break;
+    case "brent":
+      blend_code = 46;
+      break;
+
+    // Indonesia
+    case "cinta":
+      blend_code = 4176;
+      break;
+    case "duri":
+      blend_code = 4177;
+      break;
+    case "minas":
+      blend_code = 4181;
+      break;
     default:
       break;
   }
 
   // switch period based on period param
   switch (request.params.period) {
+    case "daily":
+      period = 2;
+      break;
     case "weekly":
       period = 3;
+      break;
+    case "monthly":
+      period = 4;
+      break;
+    case "yearly":
+      period = 5;
+      break;
+    case "max":
+      period = 7;
       break;
     default:
       break;
@@ -57,9 +84,10 @@ app.get("/:blend/:period", async (request, response) => {
     const csrf_token = await axios
       .get("http://192.168.1.9:3000/csrf")
       .then((result) => {
-        return result.data.datacsrf_token;
+        return result.data.data.csrf_token;
       });
 
+    // get oil and gas price data based on period and blend
     const blend_data = await axios.post(
       `https://oilprice.com/freewidgets/json_get_oilprices`,
       `blend_id=${blend_code}&period=${period}&op_csrf_token=${csrf_token}`,
