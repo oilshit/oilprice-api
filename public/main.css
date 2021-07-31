@@ -38,7 +38,8 @@ pre {
 
 p,
 pre {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 pre {
@@ -84,14 +85,15 @@ footer:hover strong {
 }
 
 footer #logo i {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   padding: 5px;
   background-color:none;
   transition: all .5s ease;
 
-  text-align: center;
+  border: 1px solid #000;
 
+  display: inline-grid;
   place-items: center;
 }
 
