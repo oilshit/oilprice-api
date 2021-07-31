@@ -7,6 +7,30 @@ body {
   line-height: 24px;
 }
 
+nav {
+  transform: rotate(-90deg);
+  position: fixed;
+  top: 7em;
+  left: -2em;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  padding: 5px;
+}
+
+nav ul li a,
+nav ul li a:hover,
+  nav ul li a:visited {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 code,
 pre code {
   font-family: "DM Mono", monospace;
@@ -24,22 +48,66 @@ pre {
 .docs-row {
   display: inline-flex;
   align-items: baseline;
-  margin: 0 10% 40px 10%;
+
+  overflow: hidden;
+
+  background-color: #ffe5d9;
+  border: 1px solid #000;
+  border-radius: 10px;
+  
+  margin: 10px 10% 0 10%;
+  width: 80%;
+}
+
+.docs-row:last-child {
+  margin-bottom: 10px;
 }
 
 .col {
   padding: 10px;
   flex-grow: 1;
+  width: 30%;
   max-width: 33%;
 
   position: sticky;
   top: 0;
 }
 
+.col-periods {
+  padding: 0;
+}
+
+.row-period {
+  display: flex;
+  flex: 1;
+}
+
+.col-period {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.col-period code {
+  font-size: 13px;
+}
+
+.yes {
+  background-color: #2a9d8f;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.no {
+  background-color: #e63946;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+}
+
 p,
 pre {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 pre {
@@ -49,8 +117,6 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
-
-  margin-bottom: 20px;
 }
 
 .example-title {

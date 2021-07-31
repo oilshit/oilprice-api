@@ -13,6 +13,13 @@
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href="docs">Documentation</a></li>
+      <li><a href="blend-list">Blend List</a></li>
+    </ul>
+  </nav>
+
   <main>
     <div class="docs-row">
       <div class="col col-endpoint">GET <code>/</code></div>
@@ -28,7 +35,7 @@
       <div class="col col-example">
         <p class="example-title">Request</p>
         <pre><code>https://oilprice-api.vercel.app/</code></pre>
-        <p class="example-title">Response</p>
+        <p class="example-title">Response (Success)</p>
         <pre><code>{
   message: "Hello, world!"
 }</code></pre>
@@ -52,7 +59,7 @@
           <strong>Duri</strong> field (located in Indonesia).
         </p>
         <pre><code>https://oilprice-api.vercel.app/prices/duri/monthly</code></pre>
-        <p class="example-title">Response</p>
+        <p class="example-title">Response (Success)</p>
         <pre><code>{
   "blend": {
     "last_price_timestamp": "1627534800",

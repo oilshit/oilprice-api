@@ -22,8 +22,11 @@ app.get("/", (request, response) => {
 
 // documentation
 app.get("/docs", (request, response) => {
-  console.log(__dirname);
   response.render("docs");
+});
+
+app.get("/blend-list", (request, response) => {
+  response.render("blend_list");
 });
 
 // API to get oilprice CSRF token
@@ -73,6 +76,9 @@ app.get("/prices/:blend/:period", async (request, response) => {
       break;
     case "opecbasket":
       blend_code = 29;
+      break;
+    case "cci":
+      blend_code = 68;
       break;
 
     // Indonesia
