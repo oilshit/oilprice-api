@@ -80,6 +80,15 @@ app.get("/prices/:blend/:period", async (request, response) => {
     case "cci":
       blend_code = 68;
       break;
+    case "dme":
+      blend_code = 48;
+      break;
+    case "mexican":
+      blend_code = 71;
+      break;
+    case "indian":
+      blend_code = 72;
+      break;
 
     // Indonesia
     case "cinta":

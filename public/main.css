@@ -49,14 +49,12 @@ pre {
   display: inline-flex;
   align-items: baseline;
 
-  overflow: hidden;
-
   background-color: #ffe5d9;
   border: 1px solid #000;
   border-radius: 10px;
   
   margin: 10px 10% 0 10%;
-  width: 80%;
+  width: 79%;
 }
 
 .docs-row:last-child {
@@ -85,6 +83,10 @@ pre {
 .col-period {
   flex-basis: 20%;
   text-align: center;
+}
+
+.col-period:last-child { 
+  border-radius: 0 10px 10px 0;
 }
 
 .col-period code {
@@ -127,8 +129,8 @@ pre {
 
 footer {
   position: fixed;
-  bottom: 1em;
-  left: 1em;
+  bottom: 10px;
+  left: 10px;
   font-size: 24px;
 
   user-select: none;
