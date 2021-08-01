@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -10,6 +11,7 @@ app.set("view engine", "ejs");
 app.set("views", __dirname);
 
 app.use(express.static("public"));
+app.use(cors());
 
 const uri = "http://192.168.1.9:3000" || process.env.URI;
 
@@ -151,6 +153,7 @@ app.get("/prices/:blend/:period", async (request, response) => {
       }
     );
 
+    // small processings and deletion of unused properties
     [
       "id",
       "blend_name",

@@ -10,8 +10,8 @@ body {
 nav {
   transform: rotate(-90deg);
   position: fixed;
-  top: 7em;
-  left: -2em;
+  top: 7.2em;
+  left: -1.7em;
 }
 
 nav ul {
@@ -21,6 +21,9 @@ nav ul {
 nav ul li {
   display: inline;
   padding: 5px;
+  border-radius: 5px;
+  background-color: #ffe8d6;
+  border: 1px solid #000;
 }
 
 nav ul li a,
