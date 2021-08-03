@@ -15,7 +15,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-const uri = "http://192.168.1.9:3000" || process.env.URI;
+const uri = process.env.URI || "http://192.168.1.9:3000";
 
 // first testing
 app.get("/", (request, response) => {
