@@ -1,5 +1,7 @@
 # oilprice-api
 
+[Project Overview](#project-overview) | [Requirements](#requirements) | [Project Setup](#project-setup)
+
 ## Project Overview
 This project displays basic API to get oil and gas prices based on oilprice.com.
 
