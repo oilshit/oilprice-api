@@ -13,6 +13,8 @@ app.set("views", __dirname);
 app.use(express.static("public"));
 app.use(cors());
 
+const PORT = process.env.PORT || 3000;
+
 const uri = "http://192.168.1.9:3000" || process.env.URI;
 
 // first testing
@@ -189,6 +191,6 @@ app.get("/prices/:blend/:period", async (request, response) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("listening to http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`listening to http://localhost:${PORT}`);
 });
