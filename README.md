@@ -2,6 +2,9 @@
 
 [Project Overview](#project-overview) | [Requirements](#requirements) | [Project Setup](#project-setup)
 
+## Live Preview
+This project is live on [https://oilprice-api.herokuapp.com](https://oilprice-api.herokuapp.com). Documentation is available on [https://oilprice-api.herokuapp.com/docs](https://oilprice-api.herokuapp.com/docs).
+
 ## Project Overview
 This project displays basic API to get oil and gas prices based on oilprice.com.
 
