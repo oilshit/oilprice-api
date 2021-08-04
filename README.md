@@ -1,6 +1,6 @@
 # oilprice-api
 
-[Project Overview](#project-overview) | [Requirements](#requirements) | [Project Setup](#project-setup)
+[Live Preview](#live-preview) |[Project Overview](#project-overview) | [Setup Requirements](#setup-requirements) | [Project Setup](#project-setup)
 
 ## Live Preview
 This project is live on [https://oilprice-api.herokuapp.com](https://oilprice-api.herokuapp.com). Documentation is available on [https://oilprice-api.herokuapp.com/docs](https://oilprice-api.herokuapp.com/docs).
@@ -8,7 +8,7 @@ This project is live on [https://oilprice-api.herokuapp.com](https://oilprice-ap
 ## Project Overview
 This project displays basic API to get oil and gas prices based on oilprice.com.
 
-## Requirements
+## Setup Requirements
 - Node.js (you can download it [here](https://nodejs.org))
 
 ## Project Setup
