@@ -21,7 +21,9 @@ const uri = process.env.URI || "http://192.168.1.9:3000";
 app.get("/", (request, response) => {
   response.status(200).json({
     message: "Hello, world!",
-    documentation: "https://oilprice-api.herokuapp.com/docs"
+    documentation: "https://oilprice-api.herokuapp.com/docs",
+    author: "oilshit",
+    repository: "https://github.com/oilshit/oilprice-api"
   });
 });
 
